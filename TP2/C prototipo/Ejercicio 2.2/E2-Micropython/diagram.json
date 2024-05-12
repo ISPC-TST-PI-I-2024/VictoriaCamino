@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "victoria camino",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -19.2,
+      "left": -100.76,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": 91.4,
+      "left": 47,
+      "attrs": { "travelLength": "30" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.3", "pot1:SIG", "black", [ "h28.8", "v9.6" ] ],
+    [ "pot1:VCC", "esp:0", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}

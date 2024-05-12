@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "victoria camino",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -19.2,
+      "left": 43.24,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 82.8,
+      "left": -140.2,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 44.4,
+      "left": -111.4,
+      "attrs": { "color": "purple" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 15.6,
+      "left": -82.6,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 147.95,
+      "left": -48,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:D32", "led3:A", "green", [ "h0" ] ],
+    [ "esp:D26", "led2:A", "green", [ "h0" ] ],
+    [ "esp:D12", "led1:A", "green", [ "h0" ] ],
+    [ "esp:GND.2", "r4:2", "black", [ "h-19.44", "v4.6" ] ],
+    [ "r4:1", "led1:C", "black", [ "v0", "h-76.8" ] ],
+    [ "r4:1", "led2:C", "black", [ "v0", "h-48" ] ],
+    [ "r4:1", "led3:C", "black", [ "v0", "h-19.2" ] ]
+  ],
+  "dependencies": {}
+}

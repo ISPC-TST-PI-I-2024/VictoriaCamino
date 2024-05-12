@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "victoria camino",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 111.6,
+      "left": -101.8,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 73.2,
+      "left": -101.8,
+      "attrs": { "color": "cyan" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 34.8,
+      "left": -101.8,
+      "attrs": { "color": "orange" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 167.15,
+      "left": -67.2,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:26", "led2:A", "green", [ "h0" ] ],
+    [ "esp:12", "led1:A", "green", [ "v0" ] ],
+    [ "esp:GND.1", "r1:2", "black", [ "h0" ] ],
+    [ "r1:1", "led1:C", "black", [ "v0", "h-48", "v-19.2" ] ],
+    [ "r1:1", "led2:C", "black", [ "v0", "h-48", "v-57.6" ] ],
+    [ "r1:1", "led3:C", "black", [ "v0", "h-48", "v-96" ] ],
+    [ "esp:32", "led3:A", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
